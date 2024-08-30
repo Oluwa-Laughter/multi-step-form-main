@@ -141,6 +141,9 @@ input {
   font-weight: 600;
   cursor: pointer;
   border: none;
+  width: fit-content;
+  margin-top: 3.8rem;
+  margin-left: auto;
 }
 
 .next_btn:hover {
