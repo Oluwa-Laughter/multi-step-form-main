@@ -28,7 +28,7 @@
       <div class="side-bar">
         <div class="steps">
           <div class="side-bar__step">
-            <div class="side-bar__step-number">1</div>
+            <div class="side-bar__step-number active-step">1</div>
             <div class="side-bar__step-text">
               <p>Step 1</p>
               <h3>Your Info</h3>
@@ -62,7 +62,7 @@
       <!-- Step 1 start -->
       <div class="form-data">
         <div class="header">
-          <h1>Personal info</h1>
+          <h2>Personal info</h2>
           <p>Please provide your name, email address, and phone number.</p>
         </div>
         <form action="" class="form">
@@ -105,38 +105,123 @@
 
       <!-- Step 2 start -->
 
-      <!-- Select your plan You have the option of monthly or yearly billing. Arcade
-      $9/mo Advanced $12/mo Pro $15/mo Monthly Yearly Go Back Next Step -->
+      <div class="monthly_plan">
+        <div class="header">
+          <h2>Select your plan</h2>
+          <p>You have the option of monthly or yearly billing.</p>
+        </div>
+
+        <div class="plans">
+          <div class="plan">
+            <img
+              src="./assets/images/icon-arcade.svg"
+              alt="arcade"
+              class="icon"
+            />
+            <div class="pricing">
+              <h3>Archade</h3>
+              <p>$9/mo</p>
+            </div>
+          </div>
+          <div class="plan">
+            <img
+              src="./assets/images/icon-advanced.svg"
+              alt="arcade"
+              class="icon"
+            />
+            <div class="pricing">
+              <h3>Advanced</h3>
+              <p>$12/mo</p>
+            </div>
+          </div>
+
+          <div class="plan">
+            <img src="./assets/images/icon-pro.svg" alt="arcade" class="icon" />
+            <div class="pricing">
+              <h3>Pro</h3>
+              <p>$15/mo</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="month_year-toggle">
+          <p class="active">Monthly</p>
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+          <p>Yearly</p>
+        </div>
+        <div class="buttons">
+          <button class="back_btn">Go Back</button>
+          <button class="next_btn">Next Step</button>
+        </div>
+      </div>
 
       <!-- Step 2 end -->
 
       <!-- Step 3 start -->
+      <div class="add-ons">
+        <div class="header">
+          <h2>Pick add-ons</h2>
+          <p>Add-ons help enhance your gaming experience.</p>
+        </div>
 
-      <!-- Pick add-ons Add-ons help enhance your gaming experience. Online service
-      Access to multiplayer games +$1/mo Larger storage Extra 1TB of cloud save
-      +$2/mo Customizable Profile Custom theme on your profile +$2/mo Go Back
-      Next Step -->
+        <div class="checkbox">
+          <div class="check">
+            <input type="checkbox" id="online-service" />
+            <label for="checkbox">
+              <h3>Online service</h3>
+              <p>Access to multiplayer games</p>
+            </label>
+            <p>+$1/mo</p>
+          </div>
 
-      <!-- Step 3 end -->
+          <div class="check">
+            <input type="checkbox" id="online-service" />
+            <label for="checkbox">
+              <h3>Larger storage</h3>
+              <p>Extra 1TB of cloud save</p>
+            </label>
+            <p>+$2/mo</p>
+          </div>
 
-      <!-- Step 4 start -->
-      <!-- 
+          <div class="check">
+            <input type="checkbox" id="online-service" />
+            <label for="checkbox">
+              <h3>Customizable Profile</h3>
+              <p>Custom theme on your profile</p>
+            </label>
+            <p>+$2/mo</p>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button class="back_btn">Go Back</button>
+          <button class="next_btn">Next Step</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 end -->
+
+    <!-- Step 4 start -->
+    <!-- 
       Finishing up Double-check everything looks OK before confirming. -->
 
-      <!-- Dynamically add subscription and add-on selections here -->
+    <!-- Dynamically add subscription and add-on selections here -->
 
-      <!-- Total (per month/year) Go Back Confirm -->
+    <!-- Total (per month/year) Go Back Confirm -->
 
-      <!-- Step 4 end -->
+    <!-- Step 4 end -->
 
-      <!-- Step 5 start -->
+    <!-- Step 5 start -->
 
-      <!-- Thank you! Thanks for confirming your subscription! We hope you have fun
+    <!-- Thank you! Thanks for confirming your subscription! We hope you have fun
       using our platform. If you ever need support, please feel free to email us
       at support@loremgaming.com. -->
 
-      <!-- Step 5 end -->
-    </div>
+    <!-- Step 5 end -->
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
