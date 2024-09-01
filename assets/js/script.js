@@ -7,7 +7,14 @@ const nextBtn = document.querySelectorAll(".next_btn");
 const backBtn = document.querySelectorAll(".back_btn");
 const monthlyPlan = document.querySelector(".monthly_plan");
 const formContainer = document.querySelector(".form-data");
+const addOns = document.querySelector(".add-ons");
+const finishing = document.querySelector(".finishing");
+const thankYou = document.querySelector(".thank_you-box");
 
+const confirmBtn = document.querySelector(".confirm_btn");
+
+console.log(nextBtn);
+console.log(backBtn);
 const validateFieldRequired = function (value) {
   return value === "" ? "This field is required" : null;
 };
@@ -52,11 +59,43 @@ const validateForm = function () {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   validateForm();
-  formContainer.style.display = "none";
-  monthlyPlan.style.display = "flex";
+
+  if (
+    !name.classList.contains("error") &&
+    !email.classList.contains("error") &&
+    !phone.classList.contains("error")
+  ) {
+    formContainer.style.display = "none";
+    monthlyPlan.style.display = "flex";
+  }
 });
 
 backBtn[0].addEventListener("click", function () {
   formContainer.style.display = "flex";
   monthlyPlan.style.display = "none";
+});
+
+nextBtn[1].addEventListener("click", function () {
+  monthlyPlan.style.display = "none";
+  addOns.style.display = "flex";
+});
+
+backBtn[1].addEventListener("click", function () {
+  addOns.style.display = "none";
+  monthlyPlan.style.display = "flex";
+});
+
+nextBtn[2].addEventListener("click", function () {
+  addOns.style.display = "none";
+  finishing.style.display = "flex";
+});
+
+backBtn[2].addEventListener("click", function () {
+  finishing.style.display = "none";
+  addOns.style.display = "flex";
+});
+
+confirmBtn.addEventListener("click", function () {
+  finishing.style.display = "none";
+  thankYou.style.display = "flex";
 });
