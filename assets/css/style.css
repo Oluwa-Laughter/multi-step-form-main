@@ -26,6 +26,16 @@ body {
   background: var(--Magnolia);
 }
 
+.error {
+  border: 1px solid red;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
 .container {
   width: 94rem;
   margin: 100px auto;
