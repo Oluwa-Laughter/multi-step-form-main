@@ -1,4 +1,6 @@
 "use-strict";
+
+const sideBarNum = document.querySelectorAll(".side-bar__step-number");
 const form = document.querySelector(".form");
 const name = document.querySelector("#name");
 const email = document.querySelector("#email");
@@ -10,8 +12,10 @@ const formContainer = document.querySelector(".form-data");
 const addOns = document.querySelector(".add-ons");
 const finishing = document.querySelector(".finishing");
 const thankYou = document.querySelector(".thank_you-box");
-
+const errorMessage = document.querySelectorAll(".errorMessage");
 const confirmBtn = document.querySelector(".confirm_btn");
+const checked = document.querySelectorAll(".checked");
+console.log(sideBarNum);
 
 console.log(nextBtn);
 console.log(backBtn);
@@ -52,8 +56,12 @@ const validateForm = function () {
     validateFieldRequired(phoneValue) || validatePhoneNumber(phoneValue);
 
   nameError ? name.classList.add("error") : name.classList.remove("error");
+  errorMessage[0].textContent = nameError;
+
   emailError ? email.classList.add("error") : email.classList.remove("error");
+  errorMessage[1].textContent = emailError;
   phoneError ? phone.classList.add("error") : phone.classList.remove("error");
+  errorMessage[2].textContent = phoneError;
 };
 
 form.addEventListener("submit", function (e) {
@@ -67,35 +75,39 @@ form.addEventListener("submit", function (e) {
   ) {
     formContainer.style.display = "none";
     monthlyPlan.style.display = "flex";
+    sideBarNum[0].classList.remove("active-step");
+    sideBarNum[1].classList.add("active-step");
   }
+  return;
 });
 
-backBtn[0].addEventListener("click", function () {
-  formContainer.style.display = "flex";
-  monthlyPlan.style.display = "none";
-});
+// Show Step Function
+const showStep = (currentStep, nextStep, stepIndex) => {
+  currentStep.style.display = "none";
+  nextStep.style.display = "flex";
+  updateSidebar(stepIndex);
+};
 
-nextBtn[1].addEventListener("click", function () {
-  monthlyPlan.style.display = "none";
-  addOns.style.display = "flex";
-});
+// Update Sidebar Function
+const updateSidebar = (activeStepIndex) => {
+  sideBarNum.forEach((step, index) => {
+    step.classList.toggle("active-step", index === activeStepIndex);
+  });
+};
 
-backBtn[1].addEventListener("click", function () {
-  addOns.style.display = "none";
-  monthlyPlan.style.display = "flex";
-});
+backBtn[0].addEventListener("click", () =>
+  showStep(monthlyPlan, formContainer, 0)
+);
+nextBtn[1].addEventListener("click", () => showStep(monthlyPlan, addOns, 2));
+backBtn[1].addEventListener("click", () => showStep(addOns, monthlyPlan, 1));
+nextBtn[2].addEventListener("click", () => showStep(addOns, finishing, 3));
+backBtn[2].addEventListener("click", () => showStep(finishing, addOns, 2));
 
-nextBtn[2].addEventListener("click", function () {
-  addOns.style.display = "none";
-  finishing.style.display = "flex";
-});
-
-backBtn[2].addEventListener("click", function () {
-  finishing.style.display = "none";
-  addOns.style.display = "flex";
-});
-
-confirmBtn.addEventListener("click", function () {
+confirmBtn.addEventListener("click", () => {
   finishing.style.display = "none";
   thankYou.style.display = "flex";
+  name.value = "";
+  email.value = "";
+  phone.value = "";
+  checked.forEach((check) => (check.checked = false));
 });
