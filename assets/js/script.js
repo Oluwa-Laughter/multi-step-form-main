@@ -64,22 +64,12 @@ const validateForm = function () {
   errorMessage[2].textContent = phoneError;
 };
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  validateForm();
-
-  if (
-    !name.classList.contains("error") &&
-    !email.classList.contains("error") &&
-    !phone.classList.contains("error")
-  ) {
-    formContainer.style.display = "none";
-    monthlyPlan.style.display = "flex";
-    sideBarNum[0].classList.remove("active-step");
-    sideBarNum[1].classList.add("active-step");
-  }
-  return;
-});
+// Update Sidebar Function
+const updateSidebar = (activeStepIndex) => {
+  sideBarNum.forEach((step, index) => {
+    step.classList.toggle("active-step", index === activeStepIndex);
+  });
+};
 
 // Show Step Function
 const showStep = (currentStep, nextStep, stepIndex) => {
@@ -88,12 +78,15 @@ const showStep = (currentStep, nextStep, stepIndex) => {
   updateSidebar(stepIndex);
 };
 
-// Update Sidebar Function
-const updateSidebar = (activeStepIndex) => {
-  sideBarNum.forEach((step, index) => {
-    step.classList.toggle("active-step", index === activeStepIndex);
-  });
-};
+// Event Listeners
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  validateForm();
+
+  if (![name, email, phone].some((el) => el.classList.contains("error"))) {
+    showStep(formContainer, monthlyPlan, 1);
+  }
+});
 
 backBtn[0].addEventListener("click", () =>
   showStep(monthlyPlan, formContainer, 0)
