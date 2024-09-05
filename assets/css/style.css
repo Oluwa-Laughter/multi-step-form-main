@@ -27,11 +27,11 @@ body {
 }
 
 .error {
-  border: 1px solid #fa0505;
+  border: 1px solid var(--Strawberryred);
 }
 
 .errorMessage {
-  color: #fa0505;
+  color: var(--Strawberryred);
   font-size: 1.2rem;
   margin-top: 0.5rem;
 }
@@ -101,7 +101,6 @@ body {
   gap: 2.4rem;
   height: 3rem;
 }
-
 .form-data,
 .monthly_plan,
 .add-ons,

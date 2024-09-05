@@ -1,0 +1,50 @@
+@media (max-width: 24em) {
+  html {
+    font-size: 50%;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 0;
+    margin: auto;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .side-bar {
+    background-image: url("../images/bg-sidebar-mobile.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20rem;
+    width: 100%;
+    border-radius: 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .side-bar__step-text {
+    display: none;
+  }
+
+  .side-bar__step-number {
+    font-size: 1.2rem;
+    padding: 0.6rem;
+  }
+
+  .form-data,
+  .monthly_plan,
+  .add-ons,
+  .finishing,
+  .thank_you-box {
+    width: auto;
+    height: 50%;
+  }
+}
