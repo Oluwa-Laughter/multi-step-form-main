@@ -1,8 +1,7 @@
 @media (max-width: 24em) {
-  html {
-    font-size: 50%;
+  body {
+    background-color: var(--White);
   }
-
   .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -11,6 +10,7 @@
     margin: auto;
     padding: 0;
     border-radius: 0;
+    inset: 0;
   }
 
   .side-bar {
@@ -29,6 +29,10 @@
   .steps {
     grid-template-columns: repeat(4, 1fr);
   }
+  .side-bar__step {
+    align-items: center;
+    justify-content: center;
+  }
 
   .side-bar__step-text {
     display: none;
@@ -42,9 +46,32 @@
   .form-data,
   .monthly_plan,
   .add-ons,
-  .finishing,
-  .thank_you-box {
+  .finishing {
     width: auto;
     height: 50%;
+  }
+
+  .plans {
+    grid-template-columns: 1fr;
+  }
+
+  .plan {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: fit-content;
+    gap: 2.4rem;
+    align-items: center;
+  }
+
+  .pricing {
+    display: flex;
+  }
+
+  .thank_you-box {
+    width: auto;
+  }
+  .attribution {
+    inset: 0;
   }
 }

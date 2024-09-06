@@ -467,7 +467,6 @@ input:checked + .slider:before {
   font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
-  bottom: 0;
   padding: 1rem;
 }
 .attribution a {
